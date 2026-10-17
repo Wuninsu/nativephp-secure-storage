@@ -1,0 +1,42 @@
+{
+    "namespace": "WuninsuSecureStorage",
+    "bridge_functions": [
+        {
+            "name": "WuninsuSecureStorage.Get",
+            "android": "com.wuninsu.securestorage.SecureStorageFunctions.Get",
+            "android_params": ["context"],
+            "ios": "WuninsuSecureStorageFunctions.Get",
+            "description": "Read a value from the Keychain / Keystore"
+        },
+        {
+            "name": "WuninsuSecureStorage.Set",
+            "android": "com.wuninsu.securestorage.SecureStorageFunctions.Set",
+            "android_params": ["context"],
+            "ios": "WuninsuSecureStorageFunctions.Set",
+            "description": "Store a value in the Keychain / Keystore"
+        },
+        {
+            "name": "WuninsuSecureStorage.Delete",
+            "android": "com.wuninsu.securestorage.SecureStorageFunctions.Delete",
+            "android_params": ["context"],
+            "ios": "WuninsuSecureStorageFunctions.Delete",
+            "description": "Delete a value from the Keychain / Keystore"
+        }
+    ],
+    "android": {
+        "min_version": 26,
+        "permissions": [],
+        "dependencies": {
+            "implementation": []
+        }
+    },
+    "ios": {
+        "min_version": "18.2",
+        "info_plist": {},
+        "dependencies": {
+            "swift_packages": [],
+            "pods": []
+        }
+    },
+    "events": []
+}

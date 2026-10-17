@@ -1,0 +1,31 @@
+{
+    "name": "wuninsu/nativephp-secure-storage",
+    "description": "Keep small secrets (such as API tokens) in the iOS Keychain or the Android Keystore from a NativePHP Mobile app.",
+    "type": "nativephp-plugin",
+    "license": "MIT",
+    "keywords": ["nativephp", "mobile", "keychain", "keystore", "secure-storage"],
+    "authors": [
+        {
+            "name": "Fuseini Abdul-Hafiz"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "nativephp/mobile": "^4.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wuninsu\\NativeSecureStorage\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wuninsu\\NativeSecureStorage\\SecureStorageServiceProvider"
+            ]
+        },
+        "nativephp": {
+            "manifest": "nativephp.json"
+        }
+    }
+}
