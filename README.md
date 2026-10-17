@@ -1,5 +1,8 @@
 # NativePHP Secure Storage
 
+[![Latest Version](https://img.shields.io/packagist/v/wuninsu/nativephp-secure-storage.svg)](https://packagist.org/packages/wuninsu/nativephp-secure-storage)
+[![License](https://img.shields.io/packagist/l/wuninsu/nativephp-secure-storage.svg)](LICENSE)
+
 Keep small secrets, such as an API token, in the **iOS Keychain** or the **Android Keystore** from a NativePHP Mobile v4 app.
 
 - **iOS:** Keychain generic-password items, readable only while the phone is unlocked, never synced to iCloud or included in backups (`kSecAttrAccessibleWhenUnlockedThisDeviceOnly`).
@@ -9,23 +12,32 @@ Values stay on the device they were written on. They do not move to a new phone,
 
 Use it for small text values (a few KB at most).
 
+> **Early release (0.x).** The PHP side is covered by tests and the Android code compiles against NativePHP Mobile 4.6. Testing on real phones is in progress, so the API may still change before 1.0.
+
+## Requirements
+
+- PHP 8.3+
+- `nativephp/mobile` ^4.6
+- Android 8 (API 26) or newer, iOS 18.2 or newer
+
 ## Install
 
-From a local folder (Composer path repository):
-
-```json
-"repositories": [
-    { "type": "path", "url": "packages/nativephp-secure-storage" }
-]
+```sh
+composer require wuninsu/nativephp-secure-storage
 ```
 
+NativePHP compiles only the plugins you register. If your app has no `app/Providers/NativeServiceProvider.php` yet, publish it first:
+
 ```sh
-composer require wuninsu/nativephp-secure-storage:@dev
+php artisan vendor:publish --tag=nativephp-plugins-provider
+```
+
+Then register the plugin and rebuild the native project:
+
+```sh
 php artisan native:plugin:register wuninsu/nativephp-secure-storage
 php artisan native:install --force
 ```
-
-Requires `nativephp/mobile` ^4.6, Android 8 (API 26) or newer, iOS 18.2 or newer.
 
 ## Use
 
